@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "sqlite3": "^5.1.7"
+  },
+  "name": "cyber-attack-simulation-sql-injection",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
