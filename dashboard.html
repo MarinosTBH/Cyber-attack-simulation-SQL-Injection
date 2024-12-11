@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Tailwind Admin Starter Template : Tailwind Toolbox</title>
+    <title>Dashboard</title>
     <meta name="author" content="name">
     <meta name="description" content="description here">
     <meta name="keywords" content="keywords,here">
@@ -55,10 +55,10 @@
                                 <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg></button>
                             <div id="myDropdown" class="dropdownlist absolute bg-gray-800 text-white right-0 mt-3 p-3 overflow-auto z-30 invisible">
                                 <input type="text" class="drop-search p-2 text-gray-600" placeholder="Search.." id="myInput" onkeyup="filterDD('myDropdown','myInput')">
-                                <a href="#" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i class="fa fa-user fa-fw"></i> Profile</a>
+                                <a href="profile?id=1" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i class="fa fa-user fa-fw"></i> Profile</a>
                                 <a href="#" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i class="fa fa-cog fa-fw"></i> Settings</a>
                                 <div class="border border-gray-800"></div>
-                                <a href="#" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i class="fas fa-sign-out-alt fa-fw"></i> Log Out</a>
+                                <a href="login" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i class="fas fa-sign-out-alt fa-fw"></i> Log Out</a>
                             </div>
                         </div>
                     </li>
@@ -413,6 +413,26 @@
 
 
 <script>
+
+
+
+function getCookie(name) {
+    const matches = document.cookie.match(new RegExp('(^| )' + '_xsrf' + '=([^;]+)'));
+console.log("value:", document.cookie)
+    return matches ? matches[2] : null;
+}
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const profileLink = document.querySelector('a[href="profile"]');
+        const userId = getCookie('userId');
+
+        if (userId && profileLink) {
+            profileLink.href = `profile?id=${userId}`;
+        }
+    });
+
+
+
     /*Toggle dropdown list*/
     function toggleDD(myDropMenu) {
         document.getElementById(myDropMenu).classList.toggle("invisible");
